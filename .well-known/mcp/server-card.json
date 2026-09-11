@@ -1,0 +1,474 @@
+{
+  "serverInfo": {
+    "name": "omniventure-agent-tools",
+    "version": "2.0.0"
+  },
+  "authentication": {
+    "required": false
+  },
+  "tools": [
+    {
+      "name": "repair_json",
+      "description": "Universal LLM JSON repair and syntax sanitizer. Fixes malformed JSON (code blocks, single quotes, trailing commas, Python literals) into RFC 8259 format in <1ms.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "raw_json": {
+            "type": "string",
+            "description": "Malformed or broken JSON string to repair."
+          }
+        },
+        "required": [
+          "raw_json"
+        ]
+      }
+    },
+    {
+      "name": "unwrap_markdown",
+      "description": "Strips markdown code fences (```json, ```python, etc.) and conversational preamble from LLM outputs to isolate clean payloads.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Raw LLM output text containing markdown code fences."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "validate_json_schema",
+      "description": "Deterministic AST schema validator checking presence and basic types of required keys with zero token cost.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "description": "Parsed JSON object to validate."
+          },
+          "required_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of required top-level keys."
+          }
+        },
+        "required": [
+          "data",
+          "required_keys"
+        ]
+      }
+    },
+    {
+      "name": "repair_csv",
+      "description": "Normalizes and repairs malformed CSV text (inconsistent delimiters, ragged rows, unescaped quotes) into RFC 4180 format.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "raw_csv": {
+            "type": "string",
+            "description": "Raw unformatted or malformed CSV string."
+          }
+        },
+        "required": [
+          "raw_csv"
+        ]
+      }
+    },
+    {
+      "name": "diff_ast_keys",
+      "description": "Compares key structures between source and target dictionaries, reporting missing, extra, and common keys.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "object",
+            "description": "Source reference dictionary."
+          },
+          "target": {
+            "type": "object",
+            "description": "Target dictionary to compare."
+          }
+        },
+        "required": [
+          "source",
+          "target"
+        ]
+      }
+    },
+    {
+      "name": "extract_markdown",
+      "description": "Web-to-Markdown context compressor. Scrapes web URLs or parses raw HTML into clean, token-efficient Markdown, saving 80-95% context tokens.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Public URL to fetch and convert to Markdown."
+          },
+          "html": {
+            "type": "string",
+            "description": "Raw HTML string to parse directly."
+          },
+          "include_links": {
+            "type": "boolean",
+            "description": "Retain hyperlinks in markdown.",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "name": "distill_context",
+      "description": "Compresses long articles or documents into dense structured bullet takeaways, key metrics, and top keywords.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "raw_text": {
+            "type": "string",
+            "description": "Raw article or document text to distill."
+          },
+          "max_keywords": {
+            "type": "integer",
+            "description": "Maximum keywords to extract (default: 5).",
+            "default": 5
+          }
+        },
+        "required": [
+          "raw_text"
+        ]
+      }
+    },
+    {
+      "name": "extract_tables",
+      "description": "Parses markdown or HTML tables into structured JSON lists of records.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text or HTML containing tabular data."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "strip_boilerplate",
+      "description": "Strips cookie notices, legal disclaimers, navigation bars, and social share boilerplate from documents.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Document text to sanitize."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "score_readability",
+      "description": "Computes text metrics, token density, and Flesch Reading Ease score for automated content grading.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text to analyze."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "sanitize_pii",
+      "description": "Zero-latency privacy and PII sanitizer. Redacts emails, phone numbers, payment cards, and SSNs before data leaves trust boundaries.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Raw text string to scan and redact PII from."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "verify_email",
+      "description": "B2B email and deliverability verifier. Validates RFC 5322 syntax, performs live DNS MX lookup, and detects disposable/burner domains.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Target email address to validate."
+          },
+          "check_mx": {
+            "type": "boolean",
+            "description": "Verify live DNS MX records (default: true).",
+            "default": true
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "validate_hash",
+      "description": "Cryptographic SHA-256 integrity validator. Computes and checks payload digests against expected hashes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "payload": {
+            "description": "Arbitrary JSON payload or dictionary to hash."
+          },
+          "expected_hash": {
+            "type": "string",
+            "description": "Optional expected 64-char hexadecimal SHA-256 digest."
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      }
+    },
+    {
+      "name": "scan_prompt_injection",
+      "description": "Fast regex heuristic scanner detecting prompt injection, jailbreak attempts, and system prompt override patterns.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "Prompt text to inspect for injection patterns."
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      }
+    },
+    {
+      "name": "detect_entropy",
+      "description": "Calculates Shannon entropy to detect exposed credentials, API keys, and cryptographic secrets in text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text or token string to scan for high-entropy secrets."
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "get_market_quote",
+      "description": "Real-time multi-asset market spot price oracle for crypto (BTC, ETH, SOL, XRP) and equities with 30s TTL edge cache.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Asset ticker (e.g. 'BTC', 'ETH', 'SOL', 'AAPL').",
+            "default": "BTC"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Target currency ('USD' or 'GBP').",
+            "default": "USD"
+          },
+          "nocache": {
+            "type": "boolean",
+            "description": "Bypass edge cache for fresh query.",
+            "default": false
+          }
+        },
+        "required": [
+          "symbol"
+        ]
+      }
+    },
+    {
+      "name": "scan_market_delta",
+      "description": "Calculates statistical delta, spread, and discrepancy between two series or asset prices for arbitrage detection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "series_a": {
+            "description": "Primary value or price list."
+          },
+          "series_b": {
+            "description": "Secondary comparison baseline."
+          },
+          "threshold_pct": {
+            "type": "number",
+            "description": "Divergence threshold (default: 5.0%).",
+            "default": 5.0
+          }
+        },
+        "required": [
+          "series_a",
+          "series_b"
+        ]
+      }
+    },
+    {
+      "name": "get_crypto_ticker",
+      "description": "Multi-currency crypto price ticker and exchange conversion rates (BTC, ETH, SOL to GBP/USD/EUR).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Base crypto symbol (e.g. 'BTC').",
+            "default": "BTC"
+          }
+        }
+      }
+    },
+    {
+      "name": "estimate_gas_priority",
+      "description": "Real-time fee priority estimations for Bitcoin (sat/vB: fast, half_hour, hour) and Ethereum (gwei: rapid, fast, standard).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "network": {
+            "type": "string",
+            "description": "Network: 'BTC' or 'ETH'.",
+            "enum": [
+              "BTC",
+              "ETH"
+            ],
+            "default": "BTC"
+          }
+        }
+      }
+    },
+    {
+      "name": "check_market_volatility",
+      "description": "Calculates statistical volatility metrics (standard deviation, annualized volatility, price span) across price points.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "series": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "description": "Array of numeric price points."
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Asset ticker to generate volatility from if series is omitted."
+          }
+        }
+      }
+    },
+    {
+      "name": "mint_bolt11_invoice",
+      "description": "Mints real BOLT-11 Lightning invoices via Alby Hub Lightning node (:8029) for autonomous machine payments.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "amount_sats": {
+            "type": "integer",
+            "description": "Amount in satoshis to invoice."
+          },
+          "memo": {
+            "type": "string",
+            "description": "Invoice memo description.",
+            "default": "OmniVenture M2M Micro-Utility"
+          }
+        },
+        "required": [
+          "amount_sats"
+        ]
+      }
+    },
+    {
+      "name": "verify_payment_hash",
+      "description": "Verifies settlement status of a Lightning invoice or payment hash via Alby Hub node.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "payment_hash": {
+            "type": "string",
+            "description": "32-byte hex payment hash."
+          }
+        },
+        "required": [
+          "payment_hash"
+        ]
+      }
+    },
+    {
+      "name": "relay_signed_webhook",
+      "description": "Outbound webhook dispatcher with HMAC-SHA256 signature, latency metering, and delivery receipts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Target webhook destination URL."
+          },
+          "payload": {
+            "type": "object",
+            "description": "JSON payload to transmit."
+          },
+          "secret": {
+            "type": "string",
+            "description": "HMAC secret key for signature."
+          }
+        },
+        "required": [
+          "url",
+          "payload"
+        ]
+      }
+    },
+    {
+      "name": "lookup_ip",
+      "description": "Edge IP and network taxonomy lookup. Resolves IP routing taxonomy, private/loopback CIDRs, and reverse DNS PTR.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "IPv4 or IPv6 address string to inspect."
+          }
+        },
+        "required": [
+          "ip"
+        ]
+      }
+    },
+    {
+      "name": "ping_health_probe",
+      "description": "Edge hardware telemetry, load averages, uptime, and sub-millisecond heartbeat verification.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "resources": [],
+  "prompts": []
+}
