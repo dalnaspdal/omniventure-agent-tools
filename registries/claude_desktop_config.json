@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "omniventure-agent-tools": {
+      "command": "python3",
+      "args": [
+        "-m",
+        "distribution.mcp.client_agent_mcp"
+      ],
+      "env": {
+        "OMNIVENTURE_GATEWAY_URL": "https://automatically-welcome-dad-extensive.trycloudflare.com",
+        "RAPIDAPI_KEY": "<YOUR_RAPIDAPI_KEY>",
+        "RAPIDAPI_HOST": "omniventure-m2m-micro-utilities.p.rapidapi.com"
+      }
+    }
+  }
+}

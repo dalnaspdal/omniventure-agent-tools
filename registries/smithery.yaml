@@ -1,0 +1,29 @@
+# Smithery.ai Registry Configuration for OmniVenture Agent Tools
+name: omniventure-agent-tools
+displayName: "OmniVenture Sub-15ms Edge Agent Tools"
+description: "Sub-15ms edge intelligence tools for Claude Desktop, Cursor, and LLM agent loops. Cuts prompt context tokens by up to 90%, repairs broken JSON in <1ms, redacts PII, and verifies B2B emails."
+version: 1.0.0
+homepage: "https://omniventure-api.web.app"
+repository: "https://github.com/dalnaspdal/omniventure-agent-tools"
+license: MIT
+categories:
+  - ai
+  - developer-tools
+  - web-scraping
+  - privacy
+startCommand:
+  type: stdio
+  command: python3
+  args:
+    - "-m"
+    - "distribution.mcp.client_agent_mcp"
+  env:
+    OMNIVENTURE_GATEWAY_URL: "https://automatically-welcome-dad-extensive.trycloudflare.com"
+    RAPIDAPI_KEY: "${RAPIDAPI_KEY}"
+configSchema:
+  type: object
+  properties:
+    rapidapiKey:
+      type: string
+      description: "Your RapidAPI Key subscribed to OmniVenture M2M Micro-Utilities."
+      title: "RapidAPI Key"

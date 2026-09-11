@@ -1,0 +1,22 @@
+{
+  "name": "omniventure-agent-tools",
+  "title": "OmniVenture Edge Agent Tools",
+  "description": "High-velocity sub-15ms edge intelligence tools for Claude Desktop and Cursor. Compresses web pages to Markdown, repairs broken LLM JSON in 0.37ms, masks PII, and validates B2B emails.",
+  "vendor": "OmniVenture",
+  "website": "https://omniventure-api.web.app",
+  "sourceUrl": "https://github.com/dalnaspdal/omniventure-agent-tools",
+  "tags": [
+    "token-compression",
+    "json-repair",
+    "pii-redaction",
+    "web-scraper",
+    "b2b-lead-enrichment"
+  ],
+  "transport": "stdio",
+  "runtime": "python3",
+  "command": "python3 -m distribution.mcp.client_agent_mcp",
+  "env": {
+    "OMNIVENTURE_GATEWAY_URL": "https://automatically-welcome-dad-extensive.trycloudflare.com",
+    "RAPIDAPI_KEY": "${RAPIDAPI_KEY}"
+  }
+}
