@@ -20,7 +20,21 @@
 
 ---
 
-## ⚡ Quickstart: Claude Desktop
+## ⚡ 1-Click Install: Smithery.ai
+
+Install automatically into Claude Desktop or Cursor with the Smithery CLI:
+
+```bash
+npx -y @smithery/cli install @dalnaspdal/omniventure-agent-tools --client claude
+```
+Or for Cursor:
+```bash
+npx -y @smithery/cli install @dalnaspdal/omniventure-agent-tools --client cursor
+```
+
+---
+
+## ⚡ Quickstart: Claude Desktop (Manual Config)
 
 Add this to your `claude_desktop_config.json`:
 
@@ -29,10 +43,9 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "omniventure-agent-tools": {
       "command": "python3",
-      "args": ["-m", "distribution.mcp.client_agent_mcp"],
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "all"],
       "env": {
-        "OMNIVENTURE_GATEWAY_URL": "https://automatically-welcome-dad-extensive.trycloudflare.com",
-        "RAPIDAPI_KEY": "<YOUR_RAPIDAPI_KEY>"
+        "OMNIVENTURE_GATEWAY_URL": "http://localhost:8950"
       }
     }
   }
@@ -41,12 +54,12 @@ Add this to your `claude_desktop_config.json`:
 
 ---
 
-## ⚡ Quickstart: Cursor IDE
+## ⚡ Quickstart: Cursor IDE (Manual Config)
 
 In Cursor: **Settings** → **Features** → **MCP Servers** → **Add New MCP Server**:
-- **Name**: `omniventure-edge`
+- **Name**: `omniventure-fleets`
 - **Type**: `command`
-- **Command**: `python3 -m distribution.mcp.client_agent_mcp`
+- **Command**: `python3 -m distribution.mcp.fleet_runner --fleet all`
 
 ---
 

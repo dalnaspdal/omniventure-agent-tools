@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.omniventure/mcp-infra",
+  "title": "OmniVenture Autonomous Bot Rails & Infrastructure MCP Server",
+  "description": "Native Bitcoin Lightning BOLT-11 invoice minting, settlement verification, signed HMAC webhook dispatching, and edge infrastructure health telemetry for autonomous machine-to-machine workflows.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/omniventure-m2m/mcp-infra",
+    "source": "github"
+  },
+  "keywords": [
+    "lightning-network",
+    "bolt11-invoice",
+    "l402",
+    "signed-webhook",
+    "machine-payments",
+    "m2m",
+    "mcp",
+    "bot-infrastructure"
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "omniventure-mcp-infra",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "command": "python3",
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "infra"]
+    }
+  ]
+}

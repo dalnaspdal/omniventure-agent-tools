@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.omniventure/mcp-distill",
+  "title": "OmniVenture Web-to-Markdown & Context Distillation MCP Server",
+  "description": "High-efficiency HTML-to-Markdown compressor, table parser, and text density analyzer. Reduces prompt context tokens by 80-95% to drastically lower LLM inference costs.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/omniventure-m2m/mcp-distill",
+    "source": "github"
+  },
+  "keywords": [
+    "web-to-markdown",
+    "html-parser",
+    "context-compression",
+    "token-saving",
+    "rag-optimization",
+    "mcp",
+    "agent-tools"
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "omniventure-mcp-distill",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "command": "python3",
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "distill"]
+    }
+  ]
+}

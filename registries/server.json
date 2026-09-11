@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.omniventure/mcp-fleets",
+  "title": "OmniVenture OS 2.0 — 5x5 Modular MCP Fleets",
+  "description": "Deterministic edge utilities for autonomous agents: RFC 8259 JSON repair, web-to-markdown context compression, zero-latency PII scrubbing, financial oracles, and Bitcoin Lightning settlement rails.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/omniventure-m2m/omni-mcp-fleets",
+    "source": "github"
+  },
+  "keywords": [
+    "mcp",
+    "agent-tools",
+    "json-repair",
+    "web-to-markdown",
+    "pii-redaction",
+    "lightning-network",
+    "arbitrage-oracles"
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "omniventure-mcp-fleets",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "command": "python3",
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "all"]
+    }
+  ]
+}

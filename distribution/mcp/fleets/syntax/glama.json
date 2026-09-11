@@ -1,0 +1,8 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "omniventure-mcp-syntax",
+  "title": "OmniVenture Syntax Repair & AST Healing",
+  "description": "Sub-millisecond RFC 8259 JSON repair, markdown unwrapping, and AST schema validation for AI agent pipelines.",
+  "maintainers": ["omniventure-m2m"],
+  "tags": ["developer-tools", "json", "ast", "syntax-repair", "agent-utility"]
+}

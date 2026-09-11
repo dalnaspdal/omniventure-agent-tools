@@ -1,0 +1,8 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "omniventure-mcp-distill",
+  "title": "OmniVenture Web-to-Markdown & Context Distiller",
+  "description": "Token-compressing HTML-to-Markdown converter and table extractor, cutting 80-95% of prompt token bloat.",
+  "maintainers": ["omniventure-m2m"],
+  "tags": ["web-scraping", "markdown", "token-compression", "rag", "agent-utility"]
+}

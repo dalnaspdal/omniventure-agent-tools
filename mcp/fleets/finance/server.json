@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.omniventure/mcp-finance",
+  "title": "OmniVenture Financial Oracles & Arbitrage Delta MCP Server",
+  "description": "Sub-millisecond spot price oracles, multi-venue arbitrage delta detection, crypto conversions, and real-time gas fee estimators with edge TTL caching for trading bots.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/omniventure-m2m/mcp-finance",
+    "source": "github"
+  },
+  "keywords": [
+    "price-oracle",
+    "crypto-ticker",
+    "arbitrage-scanner",
+    "gas-estimator",
+    "market-volatility",
+    "mcp",
+    "trading-bots"
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "omniventure-mcp-finance",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "command": "python3",
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "finance"]
+    }
+  ]
+}

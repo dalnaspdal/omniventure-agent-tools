@@ -1,0 +1,8 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "omniventure-mcp-verify",
+  "title": "OmniVenture Deterministic Verification & Privacy",
+  "description": "Zero-latency PII scrubber, secret detector, and prompt injection defense boundary for agent workflows.",
+  "maintainers": ["omniventure-m2m"],
+  "tags": ["security", "privacy", "pii", "secret-detection", "prompt-injection", "agent-utility"]
+}

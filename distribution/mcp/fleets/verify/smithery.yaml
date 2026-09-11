@@ -1,0 +1,24 @@
+# Smithery MCP Server Configuration
+# Fleet: OmniVenture Verification & Privacy
+startCommand:
+  type: stdio
+
+configSchema:
+  type: object
+  properties:
+    gatewayUrl:
+      type: string
+      description: "Optional custom OmniVenture Gateway URL"
+      default: "http://localhost:8950"
+
+commandFunction: |-
+  (config) => ({
+    command: 'python3',
+    args: ['-m', 'distribution.mcp.fleet_runner', '--fleet', 'verify'],
+    env: {
+      OMNIVENTURE_GATEWAY_URL: config.gatewayUrl || 'http://localhost:8950'
+    }
+  })
+
+exampleConfig:
+  gatewayUrl: "http://localhost:8950"

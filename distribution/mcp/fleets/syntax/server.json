@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.omniventure/mcp-syntax",
+  "title": "OmniVenture Syntax Repair & AST Healing MCP Server",
+  "description": "Deterministic sub-millisecond JSON repair, markdown code-fence unwrapping, RFC 4180 CSV normalization, and AST schema validation for autonomous AI agents. Eliminates LLM pipeline crashes without expensive re-prompting.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/omniventure-m2m/mcp-syntax",
+    "source": "github"
+  },
+  "keywords": [
+    "json-repair",
+    "ast",
+    "syntax-fix",
+    "schema-validation",
+    "csv-repair",
+    "mcp",
+    "agent-tools",
+    "edge-computing"
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "omniventure-mcp-syntax",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "command": "python3",
+      "args": ["-m", "distribution.mcp.fleet_runner", "--fleet", "syntax"]
+    }
+  ]
+}

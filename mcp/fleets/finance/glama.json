@@ -1,0 +1,8 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "omniventure-mcp-finance",
+  "title": "OmniVenture Financial Oracles & Arbitrage",
+  "description": "High-speed multi-asset market spot oracles, gas priority estimators, and spread delta scanners for trading algorithms.",
+  "maintainers": ["omniventure-m2m"],
+  "tags": ["finance", "crypto", "oracles", "arbitrage", "trading", "agent-utility"]
+}

@@ -3,7 +3,7 @@
   "name": "omniventure-mcp-fleets",
   "title": "OmniVenture OS 2.0 — 5x5 Modular MCP Fleets",
   "description": "Deterministic sub-millisecond edge utilities for autonomous agents: JSON repair, web-to-markdown context compression, PII redaction, financial oracles, and Lightning payment rails.",
-  "maintainers": ["omniventure-m2m"],
+  "maintainers": ["dalnaspdal"],
   "tags": [
     "developer-tools",
     "json-repair",

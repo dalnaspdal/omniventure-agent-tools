@@ -1,0 +1,8 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "omniventure-mcp-infra",
+  "title": "OmniVenture Bot Infrastructure & Lightning Rails",
+  "description": "Lightning invoice minting, payment verification, and signed webhook dispatching for autonomous bot operations.",
+  "maintainers": ["omniventure-m2m"],
+  "tags": ["lightning", "payments", "bolt11", "webhooks", "m2m", "infrastructure", "agent-utility"]
+}

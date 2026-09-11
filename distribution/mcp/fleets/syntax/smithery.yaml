@@ -1,0 +1,24 @@
+# Smithery MCP Server Configuration
+# Fleet: OmniVenture Syntax Repair & AST Healing
+startCommand:
+  type: stdio
+
+configSchema:
+  type: object
+  properties:
+    gatewayUrl:
+      type: string
+      description: "Optional custom OmniVenture Gateway URL (defaults to local/edge host)"
+      default: "http://localhost:8950"
+
+commandFunction: |-
+  (config) => ({
+    command: 'python3',
+    args: ['-m', 'distribution.mcp.fleet_runner', '--fleet', 'syntax'],
+    env: {
+      OMNIVENTURE_GATEWAY_URL: config.gatewayUrl || 'http://localhost:8950'
+    }
+  })
+
+exampleConfig:
+  gatewayUrl: "http://localhost:8950"
